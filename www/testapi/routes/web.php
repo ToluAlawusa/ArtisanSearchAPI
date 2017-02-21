@@ -18,4 +18,6 @@ $app->get('/', function () use ($app) {
 	$app->group(['prefix' => 'api/v1'], function($app)
 {
 	$app->post('artisan','ArtisanController@createArtisan');
+
+	$app->put('artisan/{id}','ArtisanController@updateArtisan');
 });
