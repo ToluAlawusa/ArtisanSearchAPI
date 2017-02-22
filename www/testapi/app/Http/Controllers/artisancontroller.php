@@ -85,5 +85,11 @@ class ArtisanController extends Controller{
         return response()->json($artisan);
     }
 
+    public function getArtisanByCategoryId($id) {
+  		$artisan = Artisan::where("category_id", '=', $id)->get();
+
+  		return response()->json($artisan);
+    }
+
 
 }
