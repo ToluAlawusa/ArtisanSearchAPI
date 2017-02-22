@@ -16,4 +16,10 @@ class CategoryController extends Controller{
  
 	}
 
+	public function showCategoryById($id){
+        $category = Category::find($id);
+
+        return response()->json($category);
+    }
+
 }

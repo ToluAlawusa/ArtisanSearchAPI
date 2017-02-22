@@ -31,6 +31,8 @@ $app->get('/', function () use ($app) {
 
 	$app->get('category','CategoryController@showAllCategory');
 
+	$app->get('category/{id}','CategoryController@showCategoryById');
+
 
 	
 });
