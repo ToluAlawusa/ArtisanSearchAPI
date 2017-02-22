@@ -25,5 +25,7 @@ $app->get('/', function () use ($app) {
 
 	$app->get('artisan','ArtisanController@showAllArtisan');
 
+	$app->get('artisan/{id}','ArtisanController@showArtisanById');
+
 	
 });

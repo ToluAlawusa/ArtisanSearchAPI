@@ -79,7 +79,11 @@ class ArtisanController extends Controller{
  
 	}
 
-	
+	public function showArtisanById($id){
+        $artisan = Artisan::find($id);
+
+        return response()->json($artisan);
+    }
 
 
 }
