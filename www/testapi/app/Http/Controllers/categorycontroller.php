@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
  
 class CategoryController extends Controller{
 
-	
+	public function showAllCategory(){
+ 
+    	$category  = Category::all();
+ 
+    	return response()->json($category);
+ 
+	}
 
 }
