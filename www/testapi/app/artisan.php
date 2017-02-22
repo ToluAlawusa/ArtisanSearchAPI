@@ -11,6 +11,9 @@ class Artisan extends Model implements \Illuminate\Contracts\Auth\Authenticatabl
 
 	protected $table = 'artisans';
 	protected $primaryKey = "artisan_id";
- 	protected $fillable = ['category_id', 'firstname', 'lastname', 'phone', 'email', 'username', 'password', 'address', 'summary'];
+
+    protected $fillable = ['category_id', 'firstname', 'lastname', 'phone',
+     'email', 'username', 'password', 'address', 'summary'];
+
 
 }

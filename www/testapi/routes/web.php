@@ -20,4 +20,10 @@ $app->get('/', function () use ($app) {
 	$app->post('artisan','ArtisanController@createArtisan');
 
 	$app->put('artisan/{id}','ArtisanController@updateArtisan');
+
+	$app->post('artisan/login','ArtisanController@doArtisanLogin');
+
+	$app->get('artisan','ArtisanController@showAllArtisan');
+
+	
 });

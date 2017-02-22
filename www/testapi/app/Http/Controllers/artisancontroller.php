@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Artisan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
  
 class ArtisanController extends Controller{
 
@@ -47,5 +48,38 @@ class ArtisanController extends Controller{
     	return response()->json($artisan);
 
     }
+
+    public function doArtisanLogin(Request $request) {
+
+       $this->validate($request, [
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
+            
+        try {
+            if (! $token = $this->jwt->attempt($request->only('email', 'password'))) {
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (TokenExpiredException $e) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } catch (TokenInvalidException $e) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        } catch (JWTException $e) {
+            return response()->json(['token_absent' => $e->getMessage()], $e->getStatusCode());
+        }
+
+        return response()->json(compact('token'));
+    }
+
+    public function showAllArtisan(){
+ 
+    	$artisan  = Artisan::all();
+ 
+    	return response()->json($artisan);
+ 
+	}
+
+	
+
 
 }
